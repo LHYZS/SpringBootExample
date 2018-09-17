@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <title>应用推荐</title>
+    <style>
+        .avatar{
+            width: 40px;
+            height: 40px;
+        }
+        .bar{
+            background-color: black;
+        }
+         h4 {
+            color: white;
+        }
+        span {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default bar">
+    <div class="container">
+        <div class="navbar-left">
+            <h4>少数派</h4>
+        </div>
+        <div class="navbar-right">
+            <img th:src="@{'img/'+${user.avatar}}" class="img-circle avatar ">
+            <span th:text="${user.name}"></span>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">正版软件</div>
+        <div class="col-md-1">付费栏目</div>
+        <div class="col-md-1">专题广场</div>
+        <div class="col-md-1">热门文章</div>
+        <div class="col-md-1">应用推荐</div>
+        <div class="col-md-1">生活方式</div>
+        <div class="col-md-1">新玩意</div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-12" th:each="card:${cardList}">
+        <div class="thumbnail">
+            <img th:src="@{'img/'+${card.imgLink}}" style="margin-right: 50px; margin-top: 80px">
+            <div class="caption" style="margin-bottom: 60px">
+                <h3 th:text="${card.title}" style="margin-top: 50px"></h3>
+                <h5 th:text="${card.content}" style="margin-bottom: 50px"></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

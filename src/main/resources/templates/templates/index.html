@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <title>主页</title>
+</head>
+<body>
+<div class="container"><br/>
+    <div class="alert alert-success" >
+        <table class="table table-bordered table-hover table-condensed">
+            <tr>
+                <th class="text-center">name</th>
+                <th class="text-center">age</th>
+                <th class="text-center">male</th>
+            </tr>
+            <tr th:each="student:${studentList}">
+                <td  class="text-center" th:text="${student.name}"></td>
+                <td  class="text-center" th:text="${student.age}"></td>
+                <td  class="text-center" th:text="${student.male}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
